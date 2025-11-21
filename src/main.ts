@@ -22,4 +22,4 @@ app.use(router)
 registerGlobalComponents(app)
 
 // Keycloak initialization ve app mount
-initKeycloak(app, router)
+initKeycloak(app)

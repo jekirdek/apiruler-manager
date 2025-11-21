@@ -20,21 +20,20 @@ const getConfig = <T>(key: string, defaultValue: T): T => {
 }
 
 export const config = {
-
   get ADMIN_GUI_PATH() {
     return getConfig<string>('ADMIN_GUI_PATH', '/')
   },
 
   get ADMIN_API_PORT() {
-    return getConfig<number>('ADMIN_API_PORT', 8001)
+    return getConfig<number>('ADMIN_API_PORT', import.meta.env.VITE_ADMIN_API_PORT ?? 8001)
   },
 
   get ADMIN_API_SSL_PORT() {
-    return getConfig<number>('ADMIN_API_SSL_PORT', 8444)
+    return getConfig<number>('ADMIN_API_SSL_PORT', import.meta.env.VITE_ADMIN_SSL_PORT ?? 8444)
   },
 
   get ADMIN_API_URL() {
-    const ADMIN_API_URL = getConfig<string | null>('ADMIN_API_URL', null)
+    const ADMIN_API_URL = getConfig<string | null>('ADMIN_API_URL', import.meta.env.VITE_ADMIN_API_URL)
     if (ADMIN_API_URL) {
       return /^(https?:)?\/\//.test(ADMIN_API_URL)
         ? ADMIN_API_URL
