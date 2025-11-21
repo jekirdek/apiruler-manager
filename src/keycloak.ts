@@ -2,9 +2,9 @@ import Keycloak from 'keycloak-js'
 import type { App } from 'vue'
 
 export const keycloak = new Keycloak({
-  url: 'http://localhost:7080',
-  realm: 'master',
-  clientId: 'vue-spa',
+  url: import.meta.env.VITE_KEYCLOAK_URL,
+  realm: import.meta.env.VITE_KEYCLOAK_REALM,
+  clientId: import.meta.env.VITE_KEYCLOAK_CLIENT_ID,
 })
 
 /**
